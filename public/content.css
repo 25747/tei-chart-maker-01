@@ -1,0 +1,25 @@
+.the-button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 50px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 80px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 600;
+  text-align: center;
+  padding: 9px 24px;
+  color: #fff;
+  background-color: #132257;
+  height: 36px;
+}
+.the-button:hover {
+  transform: scale(1.04);
+  background-color: #14245e;
+}
