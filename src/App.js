@@ -22,10 +22,13 @@ const onClickDownload = (data) => {
   window.resizeTo(1920, 1920);
   setTimeout(() => {
     toPng(document.getElementById("the-div"), {
-      height: 1920,
-      width: 1920,
-      // canvasWidth: 1920,
-      // canvasHeight: 1920,
+      style: {
+        position: "static",
+      },
+      // height: 1920,
+      // width: 1920,
+      // // canvasWidth: 1920,
+      // // canvasHeight: 1920,
     })
       .then((dataUrl) => {
         //window.resizeTo(750, 775);
@@ -39,7 +42,7 @@ const onClickDownload = (data) => {
       .then(() => {
         window.resizeTo(750, 775);
       });
-  }, 250);
+  }, 2000);
 };
 
 function App() {
@@ -65,14 +68,16 @@ function App() {
       {isLoaded && !!data ? (
         <>
           <PolarChart data={data} />
-          <img
-            src={teiLogo}
-            //width="130px"
-            className="tei-logo"
-            alt="The Extra Inch Logo"
-            onClick={() => onClickDownload(data)}
-          />
-          <p className="credit-text">chart by @bobaluya</p>
+          <span className="credit-span" id="the-span">
+            <img
+              src={teiLogo}
+              //width="130px"
+              className="tei-logo"
+              alt="The Extra Inch Logo"
+              onClick={() => onClickDownload(data)}
+            />
+            <p className="credit-text">chart by @bobaluya</p>
+          </span>
         </>
       ) : null}
     </div>

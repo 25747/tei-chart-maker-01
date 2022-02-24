@@ -242,6 +242,7 @@ const config = {
     hover: {
       mode: null,
     },
+    animation: false,
     plugins: {
       title: {
         display: true,
