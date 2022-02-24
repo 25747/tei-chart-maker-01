@@ -19,12 +19,21 @@ function removeSpecialChars(str) {
 }
 
 const onClickDownload = (data) => {
-  window.resizeTo(1920, 1920);
+  const theRoot = document.getElementById("root");
+  const theText = document.getElementById("credit-text");
+  const { width: initWidth, height: initHeight } =
+    theRoot.getBoundingClientRect();
+  console.log(initWidth, initHeight);
+  theRoot.style.width = "1920px";
+  theRoot.style.height = "1920px";
+  theText.style.fontSize = "32px";
   setTimeout(() => {
     toPng(document.getElementById("the-div"), {
       style: {
         position: "static",
       },
+      pixelRatio: 1,
+      quality: 1,
       // height: 1920,
       // width: 1920,
       // // canvasWidth: 1920,
@@ -40,9 +49,11 @@ const onClickDownload = (data) => {
         });
       })
       .then(() => {
-        window.resizeTo(750, 775);
+        theRoot.style.width = initWidth + "px";
+        theRoot.style.height = initHeight + "px";
+        theText.style.fontSize = "16px";
       });
-  }, 2000);
+  }, [500]);
 };
 
 function App() {
@@ -76,7 +87,9 @@ function App() {
               alt="The Extra Inch Logo"
               onClick={() => onClickDownload(data)}
             />
-            <p className="credit-text">chart by @bobaluya</p>
+            <p className="credit-text" id="credit-text">
+              chart by @bobaluya
+            </p>
           </span>
         </>
       ) : null}

@@ -4,7 +4,7 @@
   left: 25px; */
   padding-left: 25px;
   padding-bottom: 25px;
-  width: 17vw;
+  width: 17%;
 }
 
 .credit-text {
@@ -14,6 +14,7 @@
   padding-right: 50px;
   padding-bottom: 25px;
   color: rgb(255, 255, 255, 0.05);
+  font-size: calc(calc(100% - 1px) / 62);
 }
 
 .credit-span {
