@@ -2,8 +2,8 @@
   /* position: absolute;
   bottom: 35px;
   left: 25px; */
-  padding-left: 25px;
-  padding-bottom: 25px;
+  padding-left: 1%;
+  padding-bottom: 1%;
   width: 17%;
 }
 
@@ -11,10 +11,10 @@
   /* position: absolute;
   bottom: 30px;
   right: 50px; */
-  padding-right: 50px;
-  padding-bottom: 25px;
+  padding-right: 2%;
+  padding-bottom: 1%;
   color: rgb(255, 255, 255, 0.05);
-  font-size: calc(calc(100% - 1px) / 62);
+  font-size: min(calc(calc(100% - 1px) / 62), 10px);
 }
 
 .credit-span {

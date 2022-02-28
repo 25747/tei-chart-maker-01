@@ -8,8 +8,9 @@ const onClickMaker = (tableId, chartData) => {
     );
     const data = [];
 
-    tableRows.forEach((row) => {
+    tableRows.forEach((row, index) => {
       data.push({
+        id: index,
         stat: row.children[0].textContent.trim(),
         per90: Number(row.children[1].textContent.trim().replace("%", "")),
         percentile: Number(row.children[2].textContent.trim()),

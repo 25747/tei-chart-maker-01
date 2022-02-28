@@ -42,19 +42,20 @@ const playerTypes = [
     tableId: "scout_full_FB",
     tableDivId: "div_scout_full_FB",
   },
-  // { //GK TEMPLATES HAVE DIF NUMBER OF WEDGES.. ignoring for now
-  //   type: 5,
-  //   description: "GK Template",
-  //   tableId: "scout_full_GK",
-  //   tableDivId: "div_scout_full_GK",
-  // },
+  {
+    //GK TEMPLATES HAVE DIF NUMBER OF WEDGES.. ignoring for now
+    type: 5,
+    description: "GK Template",
+    tableId: "scout_full_GK",
+    tableDivId: "div_scout_full_GK",
+  },
 ];
 
 playerTypes.forEach((type) => {
   const checkDiv = document.getElementById(type.tableDivId);
   if (!!checkDiv) {
     const divForButton = document.createElement("div");
-
+    divForButton.id = "button-div";
     const button = document.createElement("button");
     const text = type.description.split(" ")[0];
     const buttonText = document.createTextNode(`${text} Polar Chart`);

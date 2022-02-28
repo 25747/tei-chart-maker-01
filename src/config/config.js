@@ -185,33 +185,51 @@ const config = {
         { value: "Fouls Drawn", display: ["Fouls", "Drawn"] },
       ],
     },
-    // {
-    //   type: 5,
-    //   description: "GK Template",
-    //   keys: [
-    //     { value: "", display: [""] },
-    //     { value: "", display: [""] },
-    //     { value: "", display: [""] },
-    //     { value: "", display: [""] },
-    //     //
-    //     { value: "", display: [""] },
-    //     { value: "", display: [""] },
-    //     { value: "", display: [""] },
-    //     { value: "", display: [""] },
-    //     //
-    //     { value: "", display: [""] },
-    //     { value: "", display: ["Saves"] },
-    //     { value: "", display: ["PSxG-GA"] },
-    //     { value: "", display: ["Save %", "(Penalty", "Kicks)"] },
-    //     //
-    //     { value: "", display: ["Crosses", "Faced"] },
-    //     { value: "", display: ["% Crosses", "Stopped"] },
-    //     { value: "", display: ["Def.", "Actions", "Outside", "Pen. Area"] },
-    //     { value: "", display: ["Avg", "Distance", "of Def.", "Actions"] },
-    //   ],
-    // },
+    {
+      type: 5,
+      description: "GK Template",
+      keys: [
+        { value: "Passes Attempted", display: ["Passes", "Attempted"] },
+        {
+          value: "Average Pass Length",
+          display: ["Average", "Pass", "Length"],
+        },
+        {
+          value: "Avg. Length of Goal Kicks",
+          display: ["Average", "Length Of", "Goal Kicks"],
+        },
+        { value: "Launch%", display: ["Launch %"] },
+        {
+          value: "Pass Completion Percentage (Launched)",
+          display: ["Pass", "Completion", "Percentage", "(Launched)"],
+        },
+        { value: "Throws Attempted", display: ["Throws", "Attempted"] },
+        //
+        { value: "PSxG", display: ["PSxG"] },
+        { value: "Saves", display: ["Saves"] },
+        {
+          value: "PSxG-GA",
+          display: ["PSxG - GA"],
+        },
+        {
+          value: "Save% (Penalty Kicks)",
+          display: ["Save %", "(Penalty", "Kicks)"],
+        },
+        //
+        { value: "Crosses Faced", display: ["Crosses", "Faced"] },
+        { value: "Crosses Stopped %", display: ["% Crosses", "Stopped"] },
+        {
+          value: "Def. Actions Outside Pen. Area",
+          display: ["Def. Actions", "Outside", "Pen. Area"],
+        },
+        {
+          value: "Avg. Distance of Def. Actions",
+          display: ["Average", "Distance Of", "Def. Actions"],
+        },
+      ],
+    },
   ],
-  primaryDatasetBackgroundColor: [
+  primaryDatasetBackgroundColorOutfield: [
     "rgb(116, 170, 187)",
     "rgb(116, 170, 187)",
     "rgb(116, 170, 187)",
@@ -220,6 +238,22 @@ const config = {
     "rgb(92, 137, 104)",
     "rgb(92, 137, 104)",
     "rgb(92, 137, 104)",
+    "rgb(160, 114, 203)",
+    "rgb(160, 114, 203)",
+    "rgb(160, 114, 203)",
+    "rgb(160, 114, 203)",
+    "rgb(152, 151, 86)",
+    "rgb(152, 151, 86)",
+    "rgb(152, 151, 86)",
+    "rgb(152, 151, 86)",
+  ],
+  primaryDatasetBackgroundColorGK: [
+    "rgb(116, 170, 187)",
+    "rgb(116, 170, 187)",
+    "rgb(116, 170, 187)",
+    "rgb(116, 170, 187)",
+    "rgb(116, 170, 187)",
+    "rgb(116, 170, 187)",
     "rgb(160, 114, 203)",
     "rgb(160, 114, 203)",
     "rgb(160, 114, 203)",
@@ -306,16 +340,17 @@ const config = {
           drawOnChartArea: false,
           color: (context) => {
             if ([20, 45, 70].includes(context.tick.value)) {
-              return "rgb(255,250,250,0.5)"; //snow
+              return "rgb(255,250,250,1)"; //snow
             } else if ((context.tick.value + 5) % 10 === 0) {
               if (context.tick.value === 95) return null;
-              return "rgb(119,136,153, 0.5)"; //lightslategray
+              return "rgb(119,136,153, 1)"; //lightslategray
             } else return null;
           },
           borderDash: (context) => {
+            const width = context.chart.width;
             if ([20, 45, 70].includes(context.tick.value)) {
-              return [7];
-            } else return [1];
+              return [width / 100];
+            } else return [width / 700];
           },
           z: 1,
         },
@@ -327,13 +362,13 @@ const config = {
             let avgSize = Math.round(
               (context.chart.height + context.chart.width) / 2
             );
-            let size = Math.round(avgSize / 250);
+            let size = Math.round(avgSize / 200);
             //console.log(avgSize, size);
             //size = size > 32 ? 32 : size; // setting max limit to 32
             return size;
           },
           color: "#132257",
-          z: 2,
+          z: 1,
         },
         pointLabels: {
           display: true,
@@ -357,6 +392,117 @@ const config = {
         },
       },
     },
+  },
+  secondaryDataSetOutfield: {
+    order: 1,
+    data: [
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100,
+    ],
+    backgroundColor: [
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(34, 55, 90)",
+      "rgb(34, 55, 90)",
+      "rgb(34, 55, 90)",
+      "rgb(34, 55, 90)",
+      "rgb(47, 50, 109)",
+      "rgb(47, 50, 109)",
+      "rgb(47, 50, 109)",
+      "rgb(47, 50, 109)",
+      "rgb(46, 57, 87)",
+      "rgb(46, 57, 87)",
+      "rgb(46, 57, 87)",
+      "rgb(46, 57, 87)",
+    ],
+    datalabels: {
+      display: true,
+      align: "end",
+      offset: (context) => {
+        return context.chart.width / 10;
+      },
+      //offset: 75,
+      color: "white",
+      backgroundColor: "#132257",
+      //opacity: 1,
+      borderWidth: (context) => {
+        return context.chart.width / 750;
+      },
+      padding: (context) => {
+        return context.chart.width / 375;
+      },
+      borderColor: "white",
+      borderRadius: 4,
+      font: (context) => {
+        //console.log("context ", context);
+        let avgSize = Math.round(
+          (context.chart.height + context.chart.width) / 2
+        );
+        let size = Math.round(avgSize / 64);
+        //console.log(avgSize, size);
+        size = size > 32 ? 32 : size; // setting max limit to 32
+        return {
+          size: size,
+          weight: "bold",
+        };
+      },
+    },
+    options: {
+      showTooltips: false,
+    },
+    borderWidth: 0,
+  },
+  secondaryDataSetGK: {
+    order: 1,
+    data: [
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+    ],
+    backgroundColor: [
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(38, 60, 107)",
+      "rgb(47, 50, 109)",
+      "rgb(47, 50, 109)",
+      "rgb(47, 50, 109)",
+      "rgb(47, 50, 109)",
+      "rgb(46, 57, 87)",
+      "rgb(46, 57, 87)",
+      "rgb(46, 57, 87)",
+      "rgb(46, 57, 87)",
+    ],
+    datalabels: {
+      display: true,
+      align: "end",
+      offset: 75,
+      color: "white",
+      backgroundColor: "#132257",
+      opacity: 1,
+      borderWidth: 1,
+      borderColor: "white",
+      borderRadius: 4,
+      font: (context) => {
+        //console.log("context ", context);
+        let avgSize = Math.round(
+          (context.chart.height + context.chart.width) / 2
+        );
+        let size = Math.round(avgSize / 64);
+        //console.log(avgSize, size);
+        size = size > 32 ? 32 : size; // setting max limit to 32
+        return {
+          size: size,
+          weight: "bold",
+        };
+      },
+    },
+    options: {
+      showTooltips: false,
+    },
+    borderWidth: 0,
   },
 };
 

@@ -23,7 +23,7 @@ const onClickDownload = (data) => {
   const theText = document.getElementById("credit-text");
   const { width: initWidth, height: initHeight } =
     theRoot.getBoundingClientRect();
-  console.log(initWidth, initHeight);
+  //console.log(initWidth, initHeight);
   theRoot.style.width = "1920px";
   theRoot.style.height = "1920px";
   theText.style.fontSize = "32px";
@@ -66,7 +66,7 @@ function App() {
       chrome.runtime.sendMessage(
         { type: "CHART_DATA_REQUEST", id: tab.id },
         (response) => {
-          console.log(response.data);
+          //console.log(response.data);
           setData(response.data);
           setIsLoaded(true);
         }

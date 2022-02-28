@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           },
           () => {
             const dataListener = (message, sender, sendResponse) => {
-              console.log("background message ", message, sender);
+              //console.log("background message ", message, sender);
               if (sender.tab.id === tab.id) {
                 sendResponse({ data: request.data });
                 chrome.runtime.onMessage.removeListener(dataListener);
