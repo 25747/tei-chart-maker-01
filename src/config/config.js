@@ -265,9 +265,14 @@ const config = {
   ],
   options: {
     layout: {
-      padding: {
-        top: 15,
-        bottom: 25,
+      padding: (context) => {
+        const value = context.chart.width / 30;
+        return {
+          top: value,
+          bottom: value,
+          left: 0,
+          right: 0,
+        };
       },
     },
     tooltip: {

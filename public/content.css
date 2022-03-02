@@ -24,7 +24,7 @@
   transform: scale(1.04);
   background-color: #14245e;
 }
-#button-div {
+.button-div {
   padding: 1px;
   padding-left: 0;
 }

@@ -41,8 +41,12 @@ const onClickDownload = (data) => {
     })
       .then((dataUrl) => {
         //window.resizeTo(750, 775);
+        let theTimePeriod = data.timePeriod;
+        if (data.timePeriod.includes("Last 365 Days")) {
+          theTimePeriod = "Last 365 Days";
+        }
         const description = data.type.description.split(" ")[0];
-        const nameFile = `${data.playerName}_${description}_${data.timePeriod}`;
+        const nameFile = `${data.playerName}_${description}_${theTimePeriod}`;
         chrome.downloads.download({
           url: dataUrl,
           filename: removeSpecialChars(nameFile),
