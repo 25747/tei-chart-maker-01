@@ -2,29 +2,95 @@
   /* position: absolute;
   bottom: 35px;
   left: 25px; */
-  padding-left: 1%;
-  padding-bottom: 1%;
+  padding-left: 2%;
+
   width: 17%;
 }
 
-.credit-text {
-  /* position: absolute;
-  bottom: 30px;
-  right: 50px; */
-  padding-right: 2%;
-  padding-bottom: 1%;
-  color: rgb(255, 255, 255, 0.1);
-  font-size: min(calc(calc(100% - 1px) / 62), 10px);
+.explainer {
+  width: 78%;
+
+  /* -webkit-filter: drop-shadow(5px 5px 5px white); */
+  filter: drop-shadow(0 0 2px lightgray);
+  /* https://stackoverflow.com/questions/3186688/drop-shadow-for-png-image-in-css */
 }
 
-.credit-span {
+.explainer-span {
+  display: flex;
+  justify-content: end;
+  width: 17%;
+  padding-right: 2%;
+}
+
+.credit-text-span {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.credit-text {
+  color: rgb(255, 255, 255, 0.1);
+  font-size: max(50%, 12px);
+  margin: 0;
+}
+
+.flex-span {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
   align-items: flex-end;
   position: absolute;
-  bottom: 25px;
+}
+.player-detail-span {
+  top: 11%;
+  justify-content: space-evenly;
+}
+
+.credit-span {
+  padding-bottom: 1%;
+  bottom: 0.5%;
+}
+
+.player-details {
+  font-size: 14px;
+  max-width: 33%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  /* padding-left: 8%;
+  padding-right: 8%; */
+}
+
+.left {
+  /* these if left/right justify*/
+  align-items: flex-end;
+  padding-right: 5%;
+
+  /* these if center justify*/
+  /* align-items: center;
+  padding-left: 9.5%; */
+}
+
+.right {
+  /* these if left/right justify*/
+  align-items: flex-start;
+  padding-left: 5%;
+
+  /* these if center justify*/
+  /* align-items: center;
+  padding-right: 9.5%; */
+}
+
+.center {
+  align-items: center;
+}
+
+.player-details-text {
+  white-space: nowrap;
+  margin: 0 0 0 0;
 }
 
 .App {

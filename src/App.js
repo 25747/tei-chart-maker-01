@@ -1,10 +1,14 @@
 /*global chrome*/
-import teiLogo from "./extrainch.png";
+import teiLogo from "./assets/extrainch.png";
+import explainer from "./assets/new-slice_3.png";
 import "./App.css";
 import { useEffect, useState } from "react";
+import { format, sub } from "date-fns";
 import { toPng } from "html-to-image";
-import { format } from "date-fns";
 import PolarChart from "./components/PolarChart";
+import CreditExplainer from "./components/credits/CreditExplainer";
+import PlayerDetails from "./components/player-details/PlayerDetails";
+import { calculateFullAge } from "./config/utils/calculateAge";
 
 function removeSpecialChars(str) {
   return (
@@ -20,13 +24,22 @@ function removeSpecialChars(str) {
 
 const onClickDownload = (data) => {
   const theRoot = document.getElementById("root");
-  const theText = document.getElementById("credit-text");
+  const creditText = Array.from(document.getElementsByClassName("credit-text"));
+  const playerText = Array.from(
+    document.getElementsByClassName("player-details")
+  );
   const { width: initWidth, height: initHeight } =
     theRoot.getBoundingClientRect();
   //console.log(initWidth, initHeight);
   theRoot.style.width = "1920px";
   theRoot.style.height = "1920px";
-  theText.style.fontSize = "32px";
+  creditText.forEach((text) => {
+    text.style.fontSize = "32px";
+  });
+  playerText.forEach((text) => {
+    text.style.fontSize = "32px";
+  });
+  //theText.style.fontSize = "32px";
   setTimeout(() => {
     toPng(document.getElementById("the-div"), {
       style: {
@@ -55,7 +68,13 @@ const onClickDownload = (data) => {
       .then(() => {
         theRoot.style.width = initWidth + "px";
         theRoot.style.height = initHeight + "px";
-        theText.style.fontSize = "16px";
+        creditText.forEach((text) => {
+          text.style.fontSize = "16px";
+        });
+        playerText.forEach((text) => {
+          text.style.fontSize = "14px";
+        });
+        //theText.style.fontSize = "16px";
       });
   }, [500]);
 };
@@ -71,7 +90,19 @@ function App() {
         { type: "CHART_DATA_REQUEST", id: tab.id },
         (response) => {
           //console.log(response.data);
-          setData(response.data);
+          const newData = {
+            ...response.data,
+          };
+          // if (newData.timePeriod === "Last 365 Days") {
+          //   const today = new Date();
+          //   const startDate = sub(today, { days: 365 });
+          //   const endFormat = format(today, "LLL yyyy");
+          //   const startFormat = format(startDate, "LLL yyyy");
+          //   newData.timePeriod = `Last 365 Days (${startFormat} - ${endFormat})`;
+          // }
+          //newData.playerAge = calculateFullAge(newData.playerBirthday);
+
+          setData(newData);
           setIsLoaded(true);
         }
       );
@@ -82,8 +113,22 @@ function App() {
     <div className="App" id="the-div">
       {isLoaded && !!data ? (
         <>
+          {/* <span className="flex-span player-detail-span">
+            <div className="player-details left">
+              <p className="player-details-text">{data.clubName}</p>
+              <p className="player-details-text">{data.type.description}</p>
+            </div>
+            <div className="player-details right">
+              <p className="player-details-text">{data.playerBirthday}</p>
+              <p className="player-details-text">
+                {data.playerFootedness} Footed
+              </p>
+            </div>
+          </span> */}
+          <PlayerDetails data={data} />
           <PolarChart data={data} />
-          <span className="credit-span" id="the-span">
+          <CreditExplainer data={data} onLogoClick={onClickDownload} />
+          {/* <span className="flex-span credit-span" id="the-span">
             <img
               src={teiLogo}
               //width="130px"
@@ -91,10 +136,15 @@ function App() {
               alt="The Extra Inch Logo"
               onClick={() => onClickDownload(data)}
             />
-            <p className="credit-text" id="credit-text">
-              chart by @bobaluya
-            </p>
-          </span>
+            <span className="credit-text-span">
+              <p className="credit-text">chart by</p>
+              <p className="credit-text">@bobaluya</p>
+            </span>
+
+            <span className="explainer-span">
+              <img src={explainer} className="explainer" />
+            </span>
+          </span> */}
         </>
       ) : null}
     </div>

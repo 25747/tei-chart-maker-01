@@ -15,7 +15,7 @@ const config = {
         },
         {
           value: "Carries into Final Third",
-          display: ["Carries", "Into", "Final Third"],
+          display: ["Carries Into", "Final Third"],
         },
         {
           value: "Progressive Passes Rec",
@@ -269,7 +269,7 @@ const config = {
         const value = context.chart.width / 30;
         return {
           top: value,
-          bottom: value,
+          bottom: value * 1.25, //trying to get a little more room on the bottom
           left: 0,
           right: 0,
         };
@@ -287,6 +287,13 @@ const config = {
         display: true,
         text: "", //VARIABLE
         color: "white",
+        padding: (context) => {
+          let width = context.chart.width;
+
+          return {
+            bottom: width / 16,
+          };
+        },
         font: (context) => {
           //console.log("context ", context);
           let avgSize = Math.round(
@@ -302,7 +309,7 @@ const config = {
         },
       },
       subtitle: {
-        display: true,
+        display: false,
         text: "", //VARIABLES - MULTIPLE CM Template - FBRef Data - Last 365 Days
         color: "white",
         font: (context) => {
@@ -318,7 +325,7 @@ const config = {
             //weight: "bold",
           };
         },
-        padding: { top: 0, bottom: 20 },
+        padding: { top: 0, bottom: "2%" },
       },
       tooltip: {
         filter: (tooltipItem) => {
@@ -343,6 +350,11 @@ const config = {
           drawBorder: false,
           display: true,
           drawOnChartArea: false,
+          lineWidth: (context) => {
+            if ([20, 45, 70].includes(context.tick.value)) {
+              return 2; //snow
+            } else return 1;
+          },
           color: (context) => {
             if ([20, 45, 70].includes(context.tick.value)) {
               return "rgb(255,250,250,1)"; //snow
@@ -391,6 +403,7 @@ const config = {
             return {
               size: size,
               weight: "bold",
+              textAlign: "center",
             };
           },
           color: "white",
@@ -426,7 +439,7 @@ const config = {
       display: true,
       align: "end",
       offset: (context) => {
-        return context.chart.width / 10;
+        return context.chart.width / 9;
       },
       //offset: 75,
       color: "white",
