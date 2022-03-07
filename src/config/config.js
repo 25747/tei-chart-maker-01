@@ -269,7 +269,7 @@ const config = {
         const value = context.chart.width / 30;
         return {
           top: value,
-          bottom: value * 1.25, //trying to get a little more room on the bottom
+          bottom: value * 1.5, // was 1.25,changed to 1.5 //trying to get a little more room on the bottom
           left: 0,
           right: 0,
         };
@@ -295,12 +295,10 @@ const config = {
           };
         },
         font: (context) => {
-          //console.log("context ", context);
           let avgSize = Math.round(
             (context.chart.height + context.chart.width) / 2
           );
           let size = Math.round(avgSize / 16);
-          //console.log(avgSize, size);
           //size = size > 32 ? 32 : size; // setting max limit to 32
           return {
             size: size,
@@ -310,15 +308,13 @@ const config = {
       },
       subtitle: {
         display: false,
-        text: "", //VARIABLES - MULTIPLE CM Template - FBRef Data - Last 365 Days
+        text: "",
         color: "white",
         font: (context) => {
-          //console.log("context ", context);
           let avgSize = Math.round(
             (context.chart.height + context.chart.width) / 2
           );
           let size = Math.round(avgSize / 60);
-          //console.log(avgSize, size);
           //size = size > 32 ? 32 : size; // setting max limit to 32
           return {
             size: size,
@@ -373,14 +369,11 @@ const config = {
         },
         angleLines: {
           display: true,
-          //lineWidth: 3,
           lineWidth: (context) => {
-            //console.log("context ", context);
             let avgSize = Math.round(
               (context.chart.height + context.chart.width) / 2
             );
             let size = Math.round(avgSize / 200);
-            //console.log(avgSize, size);
             //size = size > 32 ? 32 : size; // setting max limit to 32
             return size;
           },
@@ -390,15 +383,11 @@ const config = {
         pointLabels: {
           display: true,
           centerPointLabels: true,
-          //align: "end",
-          //textAlign: "right",
           font: (context) => {
-            //console.log("context ", context);
             let avgSize = Math.round(
               (context.chart.height + context.chart.width) / 2
             );
             let size = Math.round(avgSize / 64);
-            //console.log(avgSize, size);
             //size = size > 32 ? 32 : size; // setting max limit to 32
             return {
               size: size,
@@ -441,10 +430,8 @@ const config = {
       offset: (context) => {
         return context.chart.width / 9;
       },
-      //offset: 75,
       color: "white",
       backgroundColor: "#132257",
-      //opacity: 1,
       borderWidth: (context) => {
         return context.chart.width / 750;
       },
@@ -454,12 +441,10 @@ const config = {
       borderColor: "white",
       borderRadius: 4,
       font: (context) => {
-        //console.log("context ", context);
         let avgSize = Math.round(
           (context.chart.height + context.chart.width) / 2
         );
         let size = Math.round(avgSize / 64);
-        //console.log(avgSize, size);
         size = size > 32 ? 32 : size; // setting max limit to 32
         return {
           size: size,
@@ -504,12 +489,10 @@ const config = {
       borderColor: "white",
       borderRadius: 4,
       font: (context) => {
-        //console.log("context ", context);
         let avgSize = Math.round(
           (context.chart.height + context.chart.width) / 2
         );
         let size = Math.round(avgSize / 64);
-        //console.log(avgSize, size);
         size = size > 32 ? 32 : size; // setting max limit to 32
         return {
           size: size,

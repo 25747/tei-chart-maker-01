@@ -8,7 +8,6 @@ import { toPng } from "html-to-image";
 import PolarChart from "./components/PolarChart";
 import CreditExplainer from "./components/credits/CreditExplainer";
 import PlayerDetails from "./components/player-details/PlayerDetails";
-import { calculateFullAge } from "./config/utils/calculateAge";
 
 function removeSpecialChars(str) {
   return (
@@ -89,7 +88,6 @@ function App() {
       chrome.runtime.sendMessage(
         { type: "CHART_DATA_REQUEST", id: tab.id },
         (response) => {
-          //console.log(response.data);
           const newData = {
             ...response.data,
           };
@@ -100,7 +98,7 @@ function App() {
           //   const startFormat = format(startDate, "LLL yyyy");
           //   newData.timePeriod = `Last 365 Days (${startFormat} - ${endFormat})`;
           // }
-          //newData.playerAge = calculateFullAge(newData.playerBirthday);
+          //Keeping this around for now in case we want to bring it back
 
           setData(newData);
           setIsLoaded(true);

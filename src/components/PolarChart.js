@@ -3,8 +3,6 @@ import {
   Chart as ChartJS,
   RadialLinearScale,
   ArcElement,
-  Tooltip,
-  Legend,
   Title,
   SubTitle,
 } from "chart.js";
@@ -19,7 +17,6 @@ const PolarChart = ({ data }) => {
   ChartJS.register(
     RadialLinearScale,
     ArcElement,
-    //Tooltip,
     Title,
     ChartDataLabels,
     SubTitle

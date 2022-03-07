@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { format, sub } from "date-fns";
+//import { format, sub } from "date-fns";
 import config from "../config/config";
+import statDictionary from "../config/dictionary";
 
 const useDataSetup = (data) => {
   const [dataSetupComplete, setDataSetupComplete] = useState(false);
@@ -20,6 +21,7 @@ const useDataSetup = (data) => {
       //   const startFormat = format(startDate, "LLL yyyy");
       //   data.timePeriod = `Last 365 Days (${startFormat} - ${endFormat})`;
       // }
+      //Keeping this around for now in case we want to bring it back
 
       newOptions.plugins.title.text = data.playerName;
       document.title = `${data.playerName} - ${data.timePeriod} - ${data.type.description}`;
@@ -32,9 +34,13 @@ const useDataSetup = (data) => {
       const dataKeys = config.datasetKeys[data.type.type].keys;
       dataKeys.forEach((dataKey) => {
         const thisKey = data.data.find((datum) => dataKey.value === datum.stat);
+        // console.log("thisKey", thisKey);
+        // console.log("datakey", dataKey);
+        // console.log("dict", statDictionary[dataKey.value]);
         percentileArray.push(thisKey.percentile);
         per90Array.push(thisKey.per90);
-        labelArray.push(dataKey.display);
+        labelArray.push(statDictionary[dataKey.value]);
+        //labelArray.push(dataKey.display);
       });
       let secondaryDataSet = {};
       let primaryBackgroundColor;
