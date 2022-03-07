@@ -1,19 +1,48 @@
 /*global chrome*/
+//footed
+const playerBirthday = document.getElementById("necro-birth").innerText;
+const ageArray = Array.from(document.getElementsByTagName("nobr"))
+  .find((el) => el.textContent.includes("Age:"))
+  .textContent.match(/\d{1,2}-\d{1,4}/g)[0]
+  .split("-");
+const playerAge = `${Number(ageArray[0])} Years, ${Number(
+  ageArray[1]
+)} Days Old`;
 
-const sectionHeadingTextEl = document.getElementsByClassName(
-  "section_heading_text"
-)[0];
 const playerInfoDiv = document.getElementById("meta");
 const playerName = playerInfoDiv
   .querySelectorAll("h1[itemprop=name")[0]
   .textContent.trim();
 
 const playerInfoP = playerInfoDiv.getElementsByTagName("p");
-const clubName = Array.from(playerInfoP)
-  .find((el) => el.textContent.includes("Club: "))
-  .textContent.trim()
-  .split("Club: ")[1];
+let playerFootedness;
+let clubName;
+Array.from(playerInfoP).forEach((infoP) => {
+  const text = infoP.textContent;
+  //console.log(text);
+  if (text.includes("Footed: ")) {
+    playerFootedness = text
+      .split("Footed: ")[1] //split where we find the text 'Footed: ' and take the second element which should include XX% Left/Right
+      .replace("*", "") //remove the * from the end of the string
+      .trim(); //trim any potential whitespace
+  } else if (text.includes("Club: ")) {
+    clubName = text.trim().split("Club: ")[1];
+  }
+});
+// const playerFootedness2 = playerInfoP[0].textContent //text content of first p node includes position and footedness
+//   .split("Footed: ")[1] //split where we find the text 'Footed: ' and take the second element which should include XX% Left/Right
+//   .replace("*", "") //remove the * from the end of the string
+//   .trim(); //trim any potential whitespace
 
+//console.log(playerFootedness);
+// const clubName2 = Array.from(playerInfoP)
+//   .find((el) => el.textContent.includes("Club: "))
+//   .textContent.trim()
+//   .split("Club: ")[1];
+
+const sectionHeadingTextEl = document.getElementsByClassName(
+  "section_heading_text"
+)[0];
 let timePeriod = sectionHeadingTextEl.children[0].children[0].textContent;
 // if (timePeriod === "Last 365 Days") {
 //   const today = new Date();
@@ -27,6 +56,7 @@ let timePeriod = sectionHeadingTextEl.children[0].children[0].textContent;
 const chartData = {};
 //const playerName = document.getElementsByTagName("h1")[0].textContent.trim();
 chartData.playerName = playerName;
+chartData;
 
 const tableId = "scout_full_AM";
 
@@ -79,11 +109,9 @@ playerTypes.forEach((type) => {
   const checkDiv = document.getElementById(type.tableDivId);
   if (!!checkDiv) {
     const minuteDiv = document.getElementById(type.minutesDivId);
-    console.log(minuteDiv.getElementsByTagName("strong")[0]);
     const minutesPlayed = minuteDiv
       .getElementsByTagName("strong")[0]
       .textContent.replace(/[^\d.]/g, "");
-    console.log(minutesPlayed);
 
     const divForButton = document.createElement("div");
     divForButton.id = `the-button-div-${type.type}`;
@@ -100,6 +128,9 @@ playerTypes.forEach((type) => {
       timePeriod: timePeriod,
       clubName: clubName,
       minutesPlayed: minutesPlayed,
+      playerBirthday: playerBirthday,
+      playerAge: playerAge,
+      playerFootedness: playerFootedness,
     });
     //onclickmaker loaded from first file - check manifest
 
