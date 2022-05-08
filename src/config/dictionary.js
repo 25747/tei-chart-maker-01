@@ -171,6 +171,7 @@ const statDictionary = {
   "Crosses Stopped %": ["Crosses", "Stopped %"],
   "Def. Actions Outside Pen. Area": ["Def. Actions", "Outside", "Pen. Area"],
   "Avg. Distance of Def. Actions": ["Average", "Distance Of", "Def. Actions"],
+  "Box Entries": ["Box Entries*", "(Carries + Passes)", "*Percentile Derived"],
 };
 
 export default statDictionary;

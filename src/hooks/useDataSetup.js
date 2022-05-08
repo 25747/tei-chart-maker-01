@@ -33,13 +33,13 @@ const useDataSetup = (data) => {
 
       const dataKeys = config.datasetKeys[data.type.type].keys;
       dataKeys.forEach((dataKey) => {
-        const thisKey = data.data.find((datum) => dataKey.value === datum.stat);
+        const thisKey = data.data.find((datum) => dataKey === datum.stat);
         // console.log("thisKey", thisKey);
         // console.log("datakey", dataKey);
         // console.log("dict", statDictionary[dataKey.value]);
         percentileArray.push(thisKey.percentile);
         per90Array.push(thisKey.per90);
-        labelArray.push(statDictionary[dataKey.value]);
+        labelArray.push(statDictionary[dataKey]);
         //labelArray.push(dataKey.display);
       });
       let secondaryDataSet = {};
