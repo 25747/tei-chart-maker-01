@@ -18,7 +18,8 @@ const config = {
         "Touches (Att Pen)",
         "xA",
         "npxG",
-        "Box Entries", //"Passes into Penalty Area", //Replaced passes into box with box entries
+        "Passes into Penalty Area",
+        //"Box Entries", //"Passes into Penalty Area", //Replaced passes into box with box entries
         //
         "Crosses",
         "Dribbles Attempted",
