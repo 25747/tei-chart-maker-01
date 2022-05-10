@@ -269,21 +269,28 @@ const config = {
           display: true,
           drawOnChartArea: false,
           lineWidth: (context) => {
-            if ([20, 45, 70].includes(context.tick.value)) {
-              return 2; //snow
-            } else return 1;
+            const width = context.chart.width;
+            if (context.tick.value === 20 || context.tick.value === 70) {
+              return width / 960;
+            } else if (context.tick.value === 45) {
+              return width / 480;
+            } else return width / 1920;
           },
           color: (context) => {
-            if ([20, 45, 70].includes(context.tick.value)) {
+            if (context.tick.value === 20 || context.tick.value === 70) {
+              return "rgb(255,250,250,0.75)";
+            } else if (context.tick.value === 45) {
               return "rgb(255,250,250,1)"; //snow
             } else if ((context.tick.value + 5) % 10 === 0) {
               if (context.tick.value === 95) return null;
-              return "rgb(119,136,153, 1)"; //lightslategray
+              return "rgb(119,136,153, 0.75)"; //lightslategray
             } else return null;
           },
           borderDash: (context) => {
             const width = context.chart.width;
-            if ([20, 45, 70].includes(context.tick.value)) {
+            if (context.tick.value === 20 || context.tick.value === 70) {
+              return [width / 100];
+            } else if (context.tick.value === 45) {
               return [width / 100];
             } else return [width / 700];
           },
