@@ -11,7 +11,7 @@ const playerAge = `${Number(ageArray[0])} Years, ${Number(
 
 const playerInfoDiv = document.getElementById("meta");
 const playerName = playerInfoDiv
-  .querySelectorAll("h1[itemprop=name")[0]
+  .getElementsByTagName("h1")[0]
   .textContent.trim();
 
 const playerInfoP = playerInfoDiv.getElementsByTagName("p");

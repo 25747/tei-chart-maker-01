@@ -4,228 +4,150 @@ const config = {
       type: 0,
       description: "AM/W Template",
       keys: [
-        { value: "Pressures", display: ["Pressures"] },
-        { value: "Tkl+Int", display: ["Tackles +", "Int"] },
-        { value: "Aerials won", display: ["Aerials", "Won"] },
-        { value: "% of Aerials Won", display: ["% of", "Aerials", "Won"] },
+        "Pressures",
+        "Tkl+Int",
+        "Aerials won",
+        "% of Aerials Won",
         //
-        {
-          value: "Passes into Final Third",
-          display: ["Passes", "into Final", "Third"],
-        },
-        {
-          value: "Carries into Final Third",
-          display: ["Carries Into", "Final Third"],
-        },
-        {
-          value: "Progressive Passes Rec",
-          display: ["Progressive", "Passes Rec"],
-        },
-        { value: "Pass Completion %", display: ["Pass", "Completion", "%"] },
+
+        "Passes into Final Third",
+        "Carries into Final Third",
+        "Progressive Passes Rec",
+        "Pass Completion %",
         //
-        { value: "Touches (Att Pen)", display: ["Touches", "(Att Pen)"] },
-        { value: "xA", display: ["xA"] },
-        { value: "npxG", display: ["npxG"] },
-        {
-          value: "Passes into Penalty Area",
-          display: ["Passes", "into", "Penalty", "Area"],
-        },
+        "Touches (Att Pen)",
+        "xA",
+        "npxG",
+        "Passes into Penalty Area",
+        //"Box Entries", //"Passes into Penalty Area", //Replaced passes into box with box entries
         //
-        { value: "Crosses", display: ["Crosses"] },
-        { value: "Dribbles Attempted", display: ["Dribbles", "Attempted"] },
-        { value: "Successful Dribble %", display: ["Successful", "Dribble %"] },
-        { value: "Fouls Drawn", display: ["Fouls", "Drawn"] },
+        "Crosses",
+        "Dribbles Attempted",
+        "Successful Dribble %",
+        "Fouls Drawn",
       ],
     },
     {
       type: 1,
       description: "CB Template",
       keys: [
-        { value: "Tackles", display: ["Tackles"] },
-        {
-          value: "% of dribblers tackled",
-          display: ["%", "of Dribblers", "Tackled"],
-        },
-        { value: "Dribbled Past", display: ["Dribbled", "Past"] },
-        { value: "Fouls Committed", display: ["Fouls", "Committed"] },
+        "Tackles",
+        "% of dribblers tackled",
+        "Dribbled Past",
+        "Fouls Committed",
         //
-        { value: "Interceptions", display: ["Interceptions"] },
-        { value: "Pressures", display: ["Pressures"] },
-        { value: "Clearances", display: ["Clearances"] },
-        { value: "Dispossessed", display: ["Dispossessed"] },
+        "Interceptions",
+        "Pressures",
+        "Clearances",
+        "Dispossessed",
         //
-        {
-          value: "Passes Attempted (Long)",
-          display: ["Passes", "Attempted", "(Long)"],
-        },
-        {
-          value: "Pass Completion % (Long)",
-          display: ["Pass", "Completion", "% (Long)"],
-        },
-        { value: "Pass Completion %", display: ["Pass", "Completion", "%"] },
-        {
-          value: "Progressive Passing Distance",
-          display: ["Progressive", "Passing", "Distance"],
-        },
+        "Passes Attempted (Long)",
+        "Pass Completion % (Long)",
+        "Pass Completion %",
+        "Progressive Passing Distance",
         //
-        { value: "Aerials won", display: ["Aerials", "Won"] },
-        { value: "% of Aerials Won", display: ["% of", "Aerials", "Won"] },
-        { value: "Dribbles Completed", display: ["Dribbles", "Completed"] },
-        { value: "Touches (Att Pen)", display: ["Touches", "(Att Pen)"] },
+        "Aerials won",
+        "% of Aerials Won",
+        "Dribbles Completed",
+        "Touches (Att Pen)",
       ],
     },
     {
       type: 2,
       description: "CM Template",
       keys: [
-        { value: "Tackles", display: ["Tackles"] },
-        { value: "% of dribblers tackled", display: ["% Tackled"] },
-        { value: "Interceptions", display: ["Interceptions"] },
-        { value: "Pressures", display: ["Pressures"] },
+        "Tackles",
+        "% of dribblers tackled",
+        "Interceptions",
+        "Pressures",
         //
-        {
-          value: "Progressive Carrying Distance",
-          display: ["Progressive", "Carry Distance"],
-        },
-        {
-          value: "Progressive Passing Distance",
-          display: ["Progressive", "Pass Distance"],
-        },
-        { value: "Pass Completion %", display: ["Pass", "Completion", "%"] },
-        {
-          value: "Passes Completed (Long)",
-          display: ["Passes", "Completed", "(Long)"],
-        },
+        "Progressive Carrying Distance",
+        "Progressive Passing Distance",
+        "Pass Completion %",
+        "Passes Completed (Long)",
         //
-        {
-          value: "Passes into Final Third",
-          display: ["Passes into", "Final Third"],
-        },
-        { value: "Touches (Att 3rd)", display: ["Touches", "(Att Third)"] },
-        { value: "xA", display: ["xA"] },
-        { value: "npxG", display: ["npxG"] },
+        "Passes into Final Third",
+        "Touches (Att 3rd)",
+        "xA",
+        "npxG",
         //
-        {
-          value: "Carries into Final Third",
-          display: ["Carries into", "Final Third"],
-        },
-        { value: "Dribbles Completed", display: ["Dribbles", "Completed"] },
-        { value: "Successful Dribble %", display: ["Successful", "Dribble %"] },
-        { value: "% of Aerials Won", display: ["% of", "Aerials", "Won"] },
+        "Carries into Final Third",
+        "Dribbles Completed",
+        "Successful Dribble %",
+        "% of Aerials Won",
       ],
     },
     {
       type: 3,
       description: "FW Template",
       keys: [
-        { value: "Pressures", display: ["Pressures"] },
-        { value: "Tkl+Int", display: ["Tackles +", "Int"] },
-        { value: "Aerials won", display: ["Aerials", "Won"] },
-        { value: "% of Aerials Won", display: ["% of", "Aerials", "Won"] },
+        "Pressures",
+        "Tkl+Int",
+        "Aerials won",
+        "% of Aerials Won",
         //
-        { value: "Passes Received", display: ["Passes", "Received"] },
-        {
-          value: "Progressive Passes Rec",
-          display: ["Progressive", "Passes Rec"],
-        },
-        { value: "Passes Completed", display: ["Passes", "Completed"] },
-        { value: "xA", display: ["xA"] },
+        "Passes Received",
+        "Progressive Passes Rec",
+        "Passes Completed",
+        "xA",
         //
-        { value: "Touches (Att Pen)", display: ["Touches", "(Att Pen)"] },
-        { value: "npxG", display: ["npxG"] },
-        { value: "npxG/Sh", display: ["npxG/Sh"] },
-        { value: "Goals", display: ["Goals"] },
+        "Touches (Att Pen)",
+        "npxG",
+        "npxG/Sh",
+        "Goals",
         //
-        {
-          value: "Carries into Penalty Area",
-          display: ["Carries", "Into", "Penalty", "Area"],
-        },
-        { value: "Fouls Drawn", display: ["Fouls", "Drawn"] },
-        { value: "Dribbles Attempted", display: ["Dribbles", "Attempted"] },
-        { value: "Successful Dribble %", display: ["Successful", "Dribble %"] },
+        "Carries into Penalty Area",
+        "Fouls Drawn",
+        "Dribbles Attempted",
+        "Successful Dribble %",
       ],
     },
     {
       type: 4,
       description: "FB/WB Template",
       keys: [
-        { value: "Tackles", display: ["Tackles"] },
-        {
-          value: "% of dribblers tackled",
-          display: ["% of", "Dribblers", "Tackled"],
-        },
-        { value: "Interceptions", display: ["Interceptions"] },
-        { value: "Pressures", display: ["Pressures"] },
+        "Tackles",
+        "% of dribblers tackled",
+        "Interceptions",
+        "Pressures",
         //
-        {
-          value: "Progressive Carrying Distance",
-          display: ["Progressive", "Carrying", "Distance"],
-        },
-        {
-          value: "Progressive Passes Rec",
-          display: ["Progressive", "Passes Rec"],
-        },
-        { value: "Pass Completion %", display: ["Pass", "Completion", "%"] },
-        { value: "Dispossessed", display: ["Dispossessed"] },
+        "Progressive Carrying Distance",
+        "Progressive Passes Rec",
+        "Pass Completion %",
+        "Dispossessed",
         //
-        {
-          value: "Passes into Penalty Area",
-          display: ["Passes", "into", "Penalty", "Area"],
-        },
-        { value: "xA", display: ["xA"] },
-        {
-          value: "Crosses into Penalty Area",
-          display: ["Crosses", "into", "Penalty", "Area"],
-        },
-        { value: "npxG", display: ["npxG"] },
+
+        "Passes into Penalty Area",
+        "xA",
+        "Crosses into Penalty Area",
+        "npxG",
         //
-        { value: "Aerials won", display: ["Aerials", "Won"] },
-        { value: "% of Aerials Won", display: ["% of", "Aerials", "Won"] },
-        { value: "Dribbles Completed", display: ["Dribbles", "Completed"] },
-        { value: "Fouls Drawn", display: ["Fouls", "Drawn"] },
+        "Aerials won",
+        "% of Aerials Won",
+        "Dribbles Completed",
+        "Fouls Drawn",
       ],
     },
     {
       type: 5,
       description: "GK Template",
       keys: [
-        { value: "Passes Attempted", display: ["Passes", "Attempted"] },
-        {
-          value: "Average Pass Length",
-          display: ["Average", "Pass", "Length"],
-        },
-        {
-          value: "Avg. Length of Goal Kicks",
-          display: ["Average", "Length Of", "Goal Kicks"],
-        },
-        { value: "Launch%", display: ["Launch %"] },
-        {
-          value: "Pass Completion Percentage (Launched)",
-          display: ["Pass", "Completion", "Percentage", "(Launched)"],
-        },
-        { value: "Throws Attempted", display: ["Throws", "Attempted"] },
+        "Passes Attempted",
+        "Average Pass Length",
+        "Avg. Length of Goal Kicks",
+        "Launch%",
+        "Pass Completion Percentage (Launched)",
+        "Throws Attempted",
         //
-        { value: "PSxG", display: ["PSxG"] },
-        { value: "Saves", display: ["Saves"] },
-        {
-          value: "PSxG-GA",
-          display: ["PSxG - GA"],
-        },
-        {
-          value: "Save% (Penalty Kicks)",
-          display: ["Save %", "(Penalty", "Kicks)"],
-        },
+        "PSxG",
+        "Saves",
+        "PSxG-GA",
+        "Save% (Penalty Kicks)",
         //
-        { value: "Crosses Faced", display: ["Crosses", "Faced"] },
-        { value: "Crosses Stopped %", display: ["% Crosses", "Stopped"] },
-        {
-          value: "Def. Actions Outside Pen. Area",
-          display: ["Def. Actions", "Outside", "Pen. Area"],
-        },
-        {
-          value: "Avg. Distance of Def. Actions",
-          display: ["Average", "Distance Of", "Def. Actions"],
-        },
+        "Crosses Faced",
+        "Crosses Stopped %",
+        "Def. Actions Outside Pen. Area",
+        "Avg. Distance of Def. Actions",
       ],
     },
   ],
@@ -347,21 +269,28 @@ const config = {
           display: true,
           drawOnChartArea: false,
           lineWidth: (context) => {
-            if ([20, 45, 70].includes(context.tick.value)) {
-              return 2; //snow
-            } else return 1;
+            const width = context.chart.width;
+            if (context.tick.value === 20 || context.tick.value === 70) {
+              return width / 960;
+            } else if (context.tick.value === 45) {
+              return width / 480;
+            } else return width / 1920;
           },
           color: (context) => {
-            if ([20, 45, 70].includes(context.tick.value)) {
+            if (context.tick.value === 20 || context.tick.value === 70) {
+              return "rgb(255,250,250,0.75)";
+            } else if (context.tick.value === 45) {
               return "rgb(255,250,250,1)"; //snow
             } else if ((context.tick.value + 5) % 10 === 0) {
               if (context.tick.value === 95) return null;
-              return "rgb(119,136,153, 1)"; //lightslategray
+              return "rgb(119,136,153, 0.75)"; //lightslategray
             } else return null;
           },
           borderDash: (context) => {
             const width = context.chart.width;
-            if ([20, 45, 70].includes(context.tick.value)) {
+            if (context.tick.value === 20 || context.tick.value === 70) {
+              return [width / 100];
+            } else if (context.tick.value === 45) {
               return [width / 100];
             } else return [width / 700];
           },
