@@ -254,10 +254,10 @@ const config = {
     scales: {
       r: {
         min: 0,
-        max: 100,
+        max: 99,
         ticks: {
           display: false,
-          max: 100,
+          max: 99,
           min: 0,
           stepSize: 5,
           beginAtZero: false,
@@ -331,10 +331,7 @@ const config = {
   },
   secondaryDataSetOutfield: {
     order: 1,
-    data: [
-      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
-      100,
-    ],
+    data: [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99],
     backgroundColor: [
       "rgb(38, 60, 107)",
       "rgb(38, 60, 107)",
