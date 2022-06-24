@@ -9,7 +9,6 @@ const config = {
         "Aerials won",
         "% of Aerials Won",
         //
-
         "Passes into Final Third",
         "Carries into Final Third",
         "Progressive Passes Rec",
@@ -19,7 +18,6 @@ const config = {
         "xA",
         "npxG",
         "Passes into Penalty Area",
-        //"Box Entries", //"Passes into Penalty Area", //Replaced passes into box with box entries
         //
         "Crosses",
         "Dribbles Attempted",
@@ -385,9 +383,7 @@ const config = {
   },
   secondaryDataSetGK: {
     order: 1,
-    data: [
-      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
-    ],
+    data: [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99],
     backgroundColor: [
       "rgb(38, 60, 107)",
       "rgb(38, 60, 107)",
