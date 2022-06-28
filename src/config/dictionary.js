@@ -46,7 +46,7 @@ const statDictionary = {
   "Through Balls": ["Through", "Balls"],
   "Passes Under Pressure": ["Passes", "Under", "Pressure"],
   Switches: ["Switches"],
-  Crosses: ["Successful", "Crosses"],
+  Crosses: ["Crosses"],
   "Corner Kicks": ["Corner", "Kicks"],
   "Inswinging Corner Kicks": ["Inswinging", "Corner", "Kicks"],
   "Outswinging Corner Kicks": ["Outswinging", "Corner", "Kicks"],
